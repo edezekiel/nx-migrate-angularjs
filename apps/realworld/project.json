@@ -5,12 +5,11 @@
   "prefix": "nx-migrate-angularjs",
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@nrwl/web:webpack",
       "options": {
         "outputPath": "dist/apps/realworld",
         "index": "apps/realworld/src/index.html",
-        "main": "apps/realworld/src/main.ts",
+        "main": "apps/realworld/src/main.js",
         "polyfills": "apps/realworld/src/polyfills.ts",
         "tsConfig": "apps/realworld/tsconfig.app.json",
         "assets": [
@@ -18,7 +17,9 @@
           "apps/realworld/src/assets"
         ],
         "styles": ["apps/realworld/src/styles.css"],
-        "scripts": []
+        "scripts": [],
+        "webpackConfig": "apps/realworld/webpack.config",
+        "buildLibsFromSource": true
       },
       "configurations": {
         "production": {
@@ -54,16 +55,10 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
-      "configurations": {
-        "production": {
-          "browserTarget": "realworld:build:production"
-        },
-        "development": {
-          "browserTarget": "realworld:build:development"
-        }
-      },
-      "defaultConfiguration": "development"
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "realworld:build"
+      }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
