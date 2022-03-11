@@ -1,0 +1,28 @@
+{
+  "root": "apps/realworld-e2e",
+  "sourceRoot": "apps/realworld-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/realworld-e2e/cypress.json",
+        "devServerTarget": "realworld:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "realworld:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/realworld-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["realworld"]
+}
