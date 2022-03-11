@@ -1,3 +1,6 @@
+import template from './auth.html';
+import template2 from './auth.html';
+
 function AuthConfig($stateProvider, $httpProvider) {
   'ngInject';
 
@@ -6,7 +9,7 @@ function AuthConfig($stateProvider, $httpProvider) {
   .state('app.login', {
     url: '/login',
     controller: 'AuthCtrl as $ctrl',
-    templateUrl: 'auth/auth.html',
+    template,
     title: 'Sign in',
     resolve: {
       auth: function(User) {
@@ -18,7 +21,7 @@ function AuthConfig($stateProvider, $httpProvider) {
   .state('app.register', {
     url: '/register',
     controller: 'AuthCtrl as $ctrl',
-    templateUrl: 'auth/auth.html',
+    template: template2,
     title: 'Sign up',
     resolve: {
       auth: function(User) {

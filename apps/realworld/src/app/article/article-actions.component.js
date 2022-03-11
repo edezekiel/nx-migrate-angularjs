@@ -1,3 +1,4 @@
+import template from './article-actions.html';
 class ArticleActionsCtrl {
   constructor(Articles, User, $state) {
     'ngInject';
@@ -27,7 +28,7 @@ let ArticleActions = {
     article: '='
   },
   controller: ArticleActionsCtrl,
-  templateUrl: 'article/article-actions.html'
+  template 
 };
 
 export default ArticleActions;
