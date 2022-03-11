@@ -1,3 +1,7 @@
+import template from './profile.html';
+import template2 from './profile-articles.html';
+import template3 from './profile-articles.html';
+
 function ProfileConfig($stateProvider) {
   'ngInject';
 
@@ -7,7 +11,7 @@ function ProfileConfig($stateProvider) {
     url: '/@:username',
     controller: 'ProfileCtrl',
     controllerAs: '$ctrl',
-    templateUrl: 'profile/profile.html',
+    template,
     resolve: {
       profile: function(Profile, $state, $stateParams) {
         return Profile.get($stateParams.username).then(
@@ -23,14 +27,14 @@ function ProfileConfig($stateProvider) {
     url:'',
     controller: 'ProfileArticlesCtrl',
     controllerAs: '$ctrl',
-    templateUrl: 'profile/profile-articles.html',
+    template: template2,
     title: 'Profile'
   })
   .state('app.profile.favorites', {
     url:'/favorites',
     controller: 'ProfileArticlesCtrl',
     controllerAs: '$ctrl',
-    templateUrl: 'profile/profile-articles.html',
+    template: template3,
     title: 'Favorites'
   });
 

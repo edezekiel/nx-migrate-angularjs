@@ -1,3 +1,4 @@
+import template from './favorite-btn.html';
 class FavoriteBtnCtrl {
   constructor(User, Articles, $state) {
     'ngInject';
@@ -45,7 +46,7 @@ let FavoriteBtn= {
   },
   transclude: true,
   controller: FavoriteBtnCtrl,
-  templateUrl: 'components/buttons/favorite-btn.html'
+  template
 };
 
 export default FavoriteBtn;
